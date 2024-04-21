@@ -19,7 +19,7 @@ function generateList(list) {
 
 function fetchList(name) {
     let req = new XMLHttpRequest()
-    req.open("GET", "/lists/1.json")
+    req.open("GET", window.location.href + "/lists/1.json")
     req.addEventListener("load", () => {
         generateList(JSON.parse(req.responseText).list)
     })
