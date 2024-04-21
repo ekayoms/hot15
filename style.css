@@ -58,7 +58,7 @@ body {
     appearance: none;
     display: inline-block;
     margin: 0 auto;
-    width: 25em;
+    width: 20em;
     height: 3em;
     background: var(--entryOdd);
     border: 3px solid var(--border);
@@ -68,6 +68,29 @@ body {
     color: var(--accent);
     font-weight: bold;
     font-size: 1em;
+}
+
+@media (max-width: 900px) and (min-width: 600px) {
+    #listSelect {
+        position: absolute;
+        right: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    #topbar {
+        display: block;
+    }
+
+    #listSelect {
+        display: block;
+        left: calc(50vw - 10em);
+        margin-top: 5px;
+    }
+
+    #body {
+        top: calc(7em + 5px);
+    }
 }
 
 /* hot15 */
