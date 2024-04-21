@@ -1,6 +1,8 @@
 const hot15 = document.querySelector("#hot15")
 
-fetchList()
+let meta = {}
+
+fetchMeta()
 
 function generateList(list) {
     hot15.innerHTML = ""
@@ -9,7 +11,7 @@ function generateList(list) {
         entryElement.classList.add("entry")
 
         entryElement.innerHTML += `<div class="rank">${i + 1}</div>`
-        entryElement.innerHTML += `<img class="thumb" src="https://img.youtube.com/vi/${entry.videoId}/mqdefault.jpg"/>`
+        entryElement.innerHTML += `<a href="https://youtu.be/${entry.videoId}"><img class="thumb" src="https://img.youtube.com/vi/${entry.videoId}/mqdefault.jpg"/></a>`
         entryElement.innerHTML += `<table class="info"><tbody><tr><td class="title${entry.title.length > 32 ? " smaller" : ""}">${entry.title}</td></tr><tr><td class="author">${entry.author}<span>-</span>${entry.views} views</td></tr></tbody></table>` // crimes against humanity
         entryElement.innerHTML += `<div class="score">${Math.round(entry.views / entry.daysOld / 10) * entry.reviewPoints}</div>`
 
@@ -17,9 +19,24 @@ function generateList(list) {
     })
 }
 
+function fetchMeta() {
+    const req = new XMLHttpRequest()
+
+    req.open("GET", window.location.origin + window.location.pathname + `/lists/meta.json`)
+    req.addEventListener("load", () => {
+        meta = JSON.parse(req.responseText)
+        fetchList()
+    })
+    req.send()
+}
+
 function fetchList(name) {
-    let req = new XMLHttpRequest()
-    req.open("GET", window.location.href + "/lists/2.json")
+    const req = new XMLHttpRequest()
+
+    if (name == undefined) name = meta.latest
+    if (window.location.hash != "") name = window.location.hash.substring(1, window.location.hash.length)
+
+    req.open("GET", window.location.origin + window.location.pathname + `/lists/${name}.json`)
     req.addEventListener("load", () => {
         generateList(JSON.parse(req.responseText).list)
     })

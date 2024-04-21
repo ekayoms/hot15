@@ -11,9 +11,48 @@ body {
     background: var(--background);
     color: white;
     font-family: sans-serif;
-
+    overflow-x: hidden;
 }
 
+#body {
+    position: absolute;
+    top: 4em;
+    left: 0px;
+    width: 100vw;
+    height: calc(100vh - 4em);
+}
+
+
+/* topbar */
+
+#topbar {
+    background: var(--entryEven);
+    border-bottom: 3px solid var(--border);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 4em;
+    z-index: 10;
+}
+
+#icon {
+    height: 100%;
+    margin-right: 10px;
+    margin-left: 5px;
+}
+
+#hot15text {
+    color: var(--accent);
+    font-weight: 900;
+    display: inline-flex;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    height: 100%;
+    font-size: 2.5em;
+    user-select: none;
+}
 
 /* hot15 */
 
