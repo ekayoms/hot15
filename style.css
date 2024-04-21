@@ -34,10 +34,12 @@ body {
     width: 100vw;
     height: 4em;
     z-index: 10;
+    display: inline-flex;
+    align-items: center;
 }
 
 #icon {
-    height: 100%;
+    height: 4em;
     margin-right: 10px;
     margin-left: 5px;
 }
@@ -45,13 +47,27 @@ body {
 #hot15text {
     color: var(--accent);
     font-weight: 900;
-    display: inline-flex;
-    align-items: center;
     position: absolute;
-    top: 0px;
+    top: 2px;
     height: 100%;
     font-size: 2.5em;
     user-select: none;
+}
+
+#listSelect {
+    appearance: none;
+    display: inline-block;
+    margin: 0 auto;
+    width: 25em;
+    height: 3em;
+    background: var(--entryOdd);
+    border: 3px solid var(--border);
+    border-radius: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    color: var(--accent);
+    font-weight: bold;
+    font-size: 1em;
 }
 
 /* hot15 */
@@ -64,9 +80,16 @@ body {
     }
 }
 
-@media (min-width: 1500px) {
+@media (min-width: 1700px) {
     #hot15 {
         width: 50vw;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 1500px) and (max-width: 1700px) {
+    #hot15 {
+        width: 60vw;
         margin: 0 auto;
     }
 }
@@ -121,6 +144,17 @@ body {
 .info {
     display: inline-block;
     height: 100%;
+    margin: 0px;
+}
+
+.info tbody {
+    display: inline-block;
+    height: 5em;
+    position: absolute;
+}
+
+.info tr {
+    height: 2.5em;
 }
 
 .title {
@@ -129,10 +163,17 @@ body {
     display: flex;
     align-items: center;
     font-weight: bold;
+    position: relative;
+    top: 5px;
 }
 
 .smaller {
     font-size: 1.5em;
+}
+
+.author {
+    position: relative;
+    top: -5px;
 }
 
 .author span {
@@ -161,7 +202,14 @@ body {
 
     .entry {
         height: calc(3.5em + 26px);
-        ;
+    }
+
+    .info tbody {
+        height: 3.5em;
+    }
+
+    .info tr {
+        height: 1.75em;
     }
 
     .rank {
