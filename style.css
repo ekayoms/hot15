@@ -147,13 +147,25 @@ body {
         font-size: 1em;
     }
 
-    .smaller {
+    .author {
+        font-size: 0.9em;
+    }
+
+    .title.smaller {
         font-size: 0.8em;
+    }
+
+    .author.smaller {
+        font-size: 0.6em;
     }
 
     .entry {
         height: calc(3.5em + 26px);
         ;
+    }
+
+    .rank {
+        font-size: 1em;
     }
 }
 
